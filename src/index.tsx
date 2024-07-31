@@ -31,7 +31,7 @@ app.get("/", (c) => {
   return c.render(
     <>
       <div class="container">
-        <h1>${t.title}</h1>
+        <h1>{t.title}</h1>
         <div class="info-grid">
           <div class="info-item ip-address">
             <div class="label">{t.ip}</div>
