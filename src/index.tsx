@@ -90,8 +90,9 @@ app.get("/", (c) => {
           ver:1.0.1
         </span>
       </footer>
-      <script>
-        {`const darkModeToggle = document.getElementById('darkModeToggle');
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `const darkModeToggle = document.getElementById('darkModeToggle');
       const body = document.body;
       const mapToggle = document.getElementById('mapToggle');
       const mapContainer = document.getElementById('map');
@@ -126,8 +127,9 @@ app.get("/", (c) => {
               .openPopup();
           }
           map.invalidateSize();
-      }`}
-      </script>
+      }`,
+        }}
+      ></script>
       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     </>
   );
