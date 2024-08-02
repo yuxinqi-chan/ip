@@ -2,7 +2,7 @@ import { jsxRenderer } from "hono/jsx-renderer";
 import { translations } from "./i18n";
 
 export const renderer = jsxRenderer(({ children }, c) => {
-  let lang = c.req.param("lang") || "en";
+  let lang = c.req.query("lang") || "en";
   if (Object.hasOwn(translations, lang)) {
     lang = "en";
   }

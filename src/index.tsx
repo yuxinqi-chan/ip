@@ -23,7 +23,7 @@ app.get("/", (c) => {
     latitude,
     longitude,
   } = getIpInfo(c.req.header("CF-Connecting-IP"), c.req.raw.cf);
-  let lang = c.req.param("lang") || "en";
+  let lang = c.req.query("lang") || "en";
   if (Object.hasOwn(translations, lang)) {
     lang = "en";
   }
