@@ -29,7 +29,7 @@ export function getIpInfo(ip?: string, cf?: CfProperties<unknown>) {
   const data = {
     ip: clientIP,
     ipVersion: ipVersion,
-    country: country,
+    country: country as string,
     city: city,
     region: region,
     timezone: timezone,
@@ -39,4 +39,12 @@ export function getIpInfo(ip?: string, cf?: CfProperties<unknown>) {
     longitude: longitude,
   };
   return data;
+}
+
+export function getFlagEmoji(countryCode: string) {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split("")
+    .map((char) => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
 }

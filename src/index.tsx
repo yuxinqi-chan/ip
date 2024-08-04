@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { renderer } from "./renderer";
 import api from "./api";
-import { getIpInfo } from "./utils";
+import { getFlagEmoji, getIpInfo } from "./utils";
 import { translations } from "./i18n";
 
 const app = new Hono();
@@ -39,7 +39,7 @@ app.get("/", (c) => {
           </div>
           <div class="info-item">
             <div class="label">{t.country}</div>
-            <div class="value">{country}</div>
+            <div class="value">{getFlagEmoji(country) + country}</div>
           </div>
           <div class="info-item">
             <div class="label">{t.city}</div>
